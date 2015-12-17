@@ -1,0 +1,34 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:appHostable" controller="SalesSpaceCoreService">
+   <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+   <aura:registerEvent name="appLauncherEvent" type="c:AppLauncherEvent"/>
+   <div class="dashboard" >
+      <header>
+         <h1 class="slds-float--right">
+            <a href="javascript:;">SALES SPACE</a>
+         </h1>
+         <a href="javascript:;" class="slds-float--left icons icons-menu js-menu js-preventEvent" onclick="{!c.appLauchClick}"></a>
+         <a href="javascript:;" class="slds-float--left icons " >
+                <img src="{!v.userphotourl}" alt="{!v.userName}" title="{!v.userName}" class="slds-avatar slds-avatar--circle slds-avatar--small user-icon"/>
+          </a>
+                
+         <nav class="site-navigation slds-not-mobile" id="topNavigationNav1">
+            <ul class="slds-list--horizontal" >
+               <aura:iteration items="{!v.navigationMenuWrapperList}" var="navigationMenuWrapperObj">
+                  <!-- Display Navigation Menu's - Desktop View-->
+                  <li class="slds-list__item"><a url="{!navigationMenuWrapperObj.url}" class="{!navigationMenuWrapperObj.defaultMenu ? 'slds-active' : ''}" onclick="{!c.navigateTo}">{!navigationMenuWrapperObj.label}</a></li>
+               </aura:iteration>
+            </ul>
+         </nav>
+      </header>
+      <div class="slds-is-mobile slds-navigation">
+         <nav class="site-navigation" id="topNavigationNav2">
+            <ul class="slds-list">
+               <aura:iteration items="{!v.navigationMenuWrapperList}" var="navigationMenuWrapperObj">
+                  <!-- Display Navigation Menu's - Mobile View-->
+                  <li class="slds-list__item"><a url="{!navigationMenuWrapperObj.url}" class="{!navigationMenuWrapperObj.defaultMenu ? 'slds-active' : ''}" onclick="{!c.navigateTo}">{!navigationMenuWrapperObj.label}</a></li>
+               </aura:iteration>
+            </ul>
+         </nav>
+      </div>
+   </div>
+</aura:component>

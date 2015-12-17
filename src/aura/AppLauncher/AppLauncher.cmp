@@ -1,0 +1,39 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:appHostable" controller="SalesSpaceCoreService">
+   <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+   <aura:handler event="c:AppLauncherEvent" action="{!c.appLauncherEventHandler}"/>
+   <aura:registerEvent name="AppSelectionEvent" type="c:AppSelectionEvent"/>
+   <div class="dashboard is-dashboard " aura:id="appLauncherDiv">
+      <div class="slds-mark"></div>
+      <div class="slds-panel js-preventEvent">
+         <aura:iteration items="{!v.appSectionWrapperList}" var="appSectionWrapperObj">
+            <section>
+               <h3>{!appSectionWrapperObj.appLabel}</h3>
+               <ul class="slds-panel__list">
+                  <div aria-hidden="false" role="dialog" class="slds-action-overflow--touch">
+                     <div class="slds-action-overflow--touch__container">
+                        <div class="slds-action-overflow--touch__content">
+                           <div class="slds-action-overflow--touch__body">
+                              <ul role="menu" class="slds-list--vertical slds-has-block-links--space slds-has-dividers--bottom">
+                                 <aura:iteration items="{!appSectionWrapperObj.appLaucherWrapperList}" var="appLaucherWrapperObj">
+                                    <li class="slds-list__item" onclick="{!c.appSelectionEvent}">
+                                       <a role="menuitem" href="javascript:void(0)" style="padding-left :0px !important;">
+                                          <p class="slds-truncate">
+                                             <span class="slds-icon__container slds-icon__container--circle ">
+                                                 <img class="slds-icon slds-icon--medium" src="{!appLaucherWrapperObj.imageUrl == '' || appLaucherWrapperObj.imageUrl == undefined ? '/resource/1449902818/core/i/apps/imageNA.png' : appLaucherWrapperObj.imageUrl}" alt="{!appLaucherWrapperObj.label}" />
+                                             </span>
+                                             <span>{!appLaucherWrapperObj.label}</span>
+                                          </p>
+                                       </a>
+                                    </li>
+                                 </aura:iteration>
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </ul>
+            </section>
+         </aura:iteration>
+      </div>
+   </div>
+</aura:component>

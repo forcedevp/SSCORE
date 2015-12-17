@@ -1,0 +1,46 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:appHostable" controller="SalesSpaceCoreService">
+   <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+   <div class="dashboard is-dashboard">
+      <div class="slds-container--fluid">
+         <div class="slds-grid slds-wrap slds-grid--align-center">
+            <div class="slds-col">
+               <div class="slds-section slds-section--apps channel-direct slds-is-mobile">
+                  <div class="slds-section__header">
+                     <h3>My SalesSpace Apps</h3>
+                  </div>
+                  <div class="slds-section__content slds-clearfix">
+                     <ul>
+                        <aura:iteration items="{!v.mySalesAppWrapperList}" var="mySalesAppWrapperObj">
+                           <li class="slds-list__item slds-text-align--center">
+                              <a href="{!mySalesAppWrapperObj.url}" title="{!mySalesAppWrapperObj.title}">
+                              <img src="{!mySalesAppWrapperObj.imageUrl == '' || mySalesAppWrapperObj.imageUrl == undefined ? '/resource/1449902818/core/i/apps/imageNA.png' : mySalesAppWrapperObj.imageUrl}" alt="{!mySalesAppWrapperObj.altText}" />
+                              </a>
+                           </li>
+                        </aura:iteration>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <div class="slds-col slds-size--1-of-1 slds-medium-size--1-of-2 slds-large-size--1-of-2 slds-not-mobile center-fix">
+               <div class="slds-section slds-section--apps channel-direct slds-not-mobile">
+                  <div class="slds-section__header">
+                     <h3>My SalesSpace Apps</h3>
+                  </div>
+                  <!--/ .header -->
+                  <div class="slds-section__content slds-clearfix">
+                     <ul>
+                        <aura:iteration items="{!v.mySalesAppWrapperList}" var="mySalesAppWrapperObj">
+                           <li class="slds-list__item slds-text-align--center">
+                              <a href="{!mySalesAppWrapperObj.url}" title="{!mySalesAppWrapperObj.title}">
+                              <img src="{!mySalesAppWrapperObj.imageUrl == '' || mySalesAppWrapperObj.imageUrl == undefined ? '/resource/1449902818/core/i/apps/imageNA.png' : mySalesAppWrapperObj.imageUrl}" alt="{!mySalesAppWrapperObj.altText}" />
+                              </a>
+                           </li>
+                        </aura:iteration>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</aura:component>

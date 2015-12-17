@@ -1,0 +1,9 @@
+<aura:component implements="flexipage:availableForAllPageTypes,force:appHostable">
+	 <ltng:require styles="/resource/core/css/salesforce-lightning-design-system.css,
+                              /resource/core/css/c3.css, /resource/1449813174/core/css/screen.css, /resource/core/css/fonts.css"
+                   scripts="/resource/js/jquery-2.1.4.js,
+                            /resource/js/d3.js,
+                            /resource/js/c3.js,
+                            /resource/js/scripts.js" />
+
+</aura:component>
